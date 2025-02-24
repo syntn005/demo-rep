@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive animated product card</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="product-card">
+        <div class="logo-cart">
+            <img src="images/logo.jpg" alt="logo">
+            <i class='bx bx-shopping-bag'></i>
+        </div>
+        <div class="main-images">
+            <img id="blue"class="blue active"src="images/blue.jpg" alt="blue">
+            <img id="black"class="black "src="images/black.jpg" alt="black">
+            <img id="green"class="green "src="images/green.jpg" alt="green">
+        </div>
+        <div class="shoe-details">
+            <span class="shoe_name">ADIDAS GAZE ZX</span>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, minus.</p>
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bx-star' ></i>
+            </div>
+        </div>
+        <div class="color-price">
+            <div class="color-option">
+                <span class="color">Colour: </span>
+                <div class="circles">
+                    <span class="circle blue active"  id="blue"></span>
+                    <span class="circle black " id="black"></span>
+                    <span class="circle green " id="green"></span>
+                </div>
+            </div>
+            <div class="price">
+                <span class="price_num">$09.00</span>
+                <span class="price_letter">Nine dollars only</span>
+            </div>
+        </div>
+        <div class="button">
+            <div class="button-layer"></div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+
+
+    <script>
+        let circle= document.querySelector(".color-option");
+
+        circle.addEventListener("click",(e)=>{
+            let target =e.target;
+            if(target.classList.contains("circle")){
+                circle.querySelector(".active").classList.remove("active");
+                target.classList.add("active");
+                document.querySelector(".main-images .active").classList.remove("active");
+                document.querySelector(`.main-images .${target.id}`).classList.add("active");
+            }
+        })
+
+
+    </script>
+</body>
+</html>
